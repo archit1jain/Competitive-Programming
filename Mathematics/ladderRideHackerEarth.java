@@ -17,7 +17,7 @@ public class ladderRideHackerEarth {
         if(n<=0) return BigInteger.ZERO;
         if(memo[n]!=null) return memo[n];
         
-        
+        return memo[0];
         
     }
     public static void main(String[] args){
