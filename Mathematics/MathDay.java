@@ -43,11 +43,11 @@ public class MathDay {
     static int mod;
     static int pow[];
     public static int pow(int a, int p){
-        if(pow[p] != 0) return pow[0];
-        int ans = pow(a,p/2)%mod;
-        ans=(ans%mod*ans%mod)%mod;
+        if(pow[p] != 0) return pow[p];
+        int ans = pow(a,p/2);
+        ans=(ans*ans);
         if((p&1)==1){
-            ans=(a*ans)%mod;
+            ans=(a*ans);
         }
         pow[p]=ans;
         return pow[p];
@@ -56,16 +56,16 @@ public class MathDay {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        pow =  new int [100007];
-        pow[0]=1;
         for(int tt = 0; tt<t ; tt++){
             int a = sc.nextInt();
             int n = sc.nextInt();
             int p = sc.nextInt();
             mod = p;
             int ans = 1;
+            pow =  new int [100007];
+            pow[0]=1;
             for(int i =1;i<=n;i++){
-                ans = (ans%mod*pow(a,i)%mod)%mod;
+                ans = (ans*pow(a,i))%mod;
             }
             System.out.println(ans%mod);
         }   

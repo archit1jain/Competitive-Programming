@@ -18,12 +18,6 @@ public class nQueenAdvanced {
   }
   public static void solve(int rowMask,int ld, int rd,int row){
       if(rowMask==DONE){ans++;
-      for(int i =0;i<n;i++){
-          for(int j =0;j<n;j++)
-          System.out.print(board[i][j]);
-          System.out.println();
-      }
-      System.out.println("---------------------------------------------------");
       return;}
       int safe = DONE & (~(rowMask|ld|rd));
       while(safe!=0){
